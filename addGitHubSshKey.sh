@@ -1,8 +1,8 @@
 #!/bin/bash
-read -p "Enter github account email address: " email
-echo "Using email $email"
-echo
 if [ ! -f ~/.ssh/id_rsa ]; then
+  read -p "Enter github account email address: " email
+  echo "Using email $email"
+  echo
   ssh-keygen -t rsa -b 4096 -C "$email"
   ssh-add ~/.ssh/id_rsa
 fi
@@ -16,6 +16,4 @@ read -p "Enter github ssh key name: " keyname
 echo
 echo "Adding SSH Key $keyname"
 echo
-curl -X POST -d "{\"title\":\"$keyname\",\"key\":\"$pub\"}" \
-  -H "Authorization: token $token" -H "X-GitHub-OTP: $otp" \
-  -H "Accept: application/vnd.github.v3+json" https://api.github.com/user/keys
+curl -X POST -d "{\"title\":\"$keyname\",\"key\":\"$pub\"}" -H "Authorization: token $token" -H "X-GitHub-OTP: $otp" -H "Accept: application/vnd.github.v3+json" https://api.github.com/user/keys
