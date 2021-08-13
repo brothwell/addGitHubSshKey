@@ -12,7 +12,7 @@ It will then call the GitHub API and add the public key "id_rsa.pub" to the user
 The following input is required via terminal prompts:
 
 * GitHub account email address
-* Personall access token
+* Personal access token
 * OTP (One-time password) for MFA (Multi-factor authentication)
 * SSH key name
 
