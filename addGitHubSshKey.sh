@@ -13,4 +13,6 @@ read -p "Enter github OTP: " otp
 echo "Using otp $otp"
 echo
 read -p "Enter github ssh key name: " keyname
-curl -X POST -d "{\"title\":\"$keyname\",\"key\":\"$pub\"}" -H "Authorization: token $token" -H "X-GitHub-OTP: $otp" -H "Accept: application/vnd.github.v3+json" https://api.github.com/user/keys
+curl -X POST -d "{\"title\":\"$keyname\",\"key\":\"$pub\"}" \
+  -H "Authorization: token $token" -H "X-GitHub-OTP: $otp" \
+  -H "Accept: application/vnd.github.v3+json" https://api.github.com/user/keys
